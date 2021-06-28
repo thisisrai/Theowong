@@ -155,6 +155,61 @@
 		}
     });
 
+    /* Condo Request Form */
+    $("#condoRequestForm").validator().on("submit", function(event) {
+    	if (event.isDefaultPrevented()) {
+            // handle the invalid form...
+            rcondoformError();
+            rcondosubmitMSG(false, "Please fill all fields!");
+        } else {
+            // everything looks good!
+            event.preventDefault();
+            rcondosubmitForm();
+        }
+    });
+
+    function rcondosubmitForm() {
+        // initiate variables with form content
+		var name = $("#rcondoname").val();
+		var email = $("#rcondoemail").val();
+		var phone = $("#rcondophone").val();
+    var address = $("#rcondoaddress").val();
+
+        $.ajax({
+            type: "POST",
+            url: "https://theowong.herokuapp.com/condo",
+            data: {name: name, email: email, phone: phone, address: address},
+            success: function(response) {
+                if (response.success == "success") {
+                    rcondoformSuccess();
+                } else {
+                    rcondoformError();
+                    rcondosubmitMSG(false, 'There was something wrong with the appointment request, please try again later.');
+                }
+            }
+        });
+	}
+
+    function rcondoformSuccess() {
+        $("#condoRequestForm")[0].reset();
+        rcondosubmitMSG(true, "Request Submitted!");
+        $("input").removeClass('notEmpty'); // resets the field label after submission
+    }
+
+    function rcondoformError() {
+        $("#condoRequestForm").removeClass().addClass('shake animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+            $(this).removeClass();
+        });
+	}
+
+    function rcondosubmitMSG(valid, msg) {
+        if (valid) {
+            var msgClasses = "h3 text-center tada animated";
+        } else {
+            var msgClasses = "h3 text-center";
+        }
+        $("#rcondomsgSubmit").removeClass().addClass(msgClasses).text(msg);
+    }
 
     /* Request Form */
     $("#requestForm").validator().on("submit", function(event) {

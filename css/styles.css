@@ -1617,6 +1617,10 @@ a:hover.back-to-top {
 	background-color: #f9fafc;
 }
 
+.condo-button {
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
 
 /*****************************/
 /*     20. Media Queries     */
