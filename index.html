@@ -364,21 +364,9 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="text-container">
-                        <h2>Fill The Following Form To Request A Meeting</h2>
-                        <p>The LW Group is the best real estate firm in the market. Discover what we can do for you right away.</p>
+                        <h2>Fill The Following Form To Request A Meeting for Your Multi Unit Property</h2>
+                        <p>Ready to list your multi unit property?</p>
                         <ul class="list-unstyled li-space-lg">
-                            <li class="media">
-                                <i class="fas fa-check"></i>
-                                <div class="media-body"><strong class="blue">Let us help you sell</strong> worry free</div>
-                            </li>
-                            <li class="media">
-                                <i class="fas fa-check"></i>
-                                <div class="media-body"><strong class="blue">Let us help you buy</strong> and find the perfect home or investment</div>
-                            </li>
-                            <li class="media">
-                                <i class="fas fa-check"></i>
-                                <div class="media-body"><strong class="blue">Fully transparent</strong> and fast responses</div>
-                            </li>
                             <li class="media">
                                 <i class="fas fa-check"></i>
                                 <div class="media-body"><strong class="blue">Save precious time</strong> and invest it where you need it the most</div>
@@ -407,14 +395,31 @@
                                 <div class="help-block with-errors"></div>
                             </div>
                             <div class="form-group">
-                                <select class="form-control-select" id="rselect" required>
-                                    <option class="select-option" value="" disabled selected>Interested in...</option>
-                                    <option class="select-option" value="Selling">Selling</option>
-                                    <option class="select-option" value="Buying">Buying</option>
-                                    <option class="select-option" value="Discussing">Discussing</option>
-                                </select>
-                                <div class="help-block with-errors"></div>
+                              <label class="form-label" for="raddress">What is the address of your property?</label>
+                              <textarea type="text" class="form-control" id="raddress" name="raddress" required></textarea>
+                              <div class="help-block with-errors"></div>
                             </div>
+                            <div class="form-group">
+                              <label class="form-label" for="runit">How many units are in your building?</label>
+                              <textarea type="text" class="form-control" id="runit" name="runit"></textarea>
+                              <div class="help-block with-errors"></div>
+                            </div>
+                            <div class="form-group">
+                              <label class="form-label" for="runitsize">How many bedrooms/bathrooms are in each unit and what are current rents?</label>
+                              <textarea type="text" class="form-control" id="runitsize" name="runitsize"></textarea>
+                              <div class="help-block with-errors"></div>
+                            </div>
+                            <div class="form-group">
+                              <label class="form-label" for="radditionalincome">How much is the additional income? (laundry/parking/storage)</label>
+                              <textarea type="text" class="form-control" id="radditionalincome" name="radditionalincome"></textarea>
+                              <div class="help-block with-errors"></div>
+                            </div>
+                            <div class="form-outline">
+                              <label class="form-label" for="rexpense">How much are the total expenses for your property? (Insurance, garbage, water/sewer, Electricity/gas, landscaping)</label>
+                              <textarea type="text" class="form-control" id="rexpense" name="rexpense"></textarea>
+                              <div class="help-block with-errors"></div>
+                            </div>
+                            <br>
                             <div class="form-group">
                                 <button type="submit" class="form-control-submit-button">REQUEST</button>
                             </div>

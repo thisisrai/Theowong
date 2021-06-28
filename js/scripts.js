@@ -229,18 +229,31 @@
 		var name = $("#rname").val();
 		var email = $("#remail").val();
 		var phone = $("#rphone").val();
-        var select = $("#rselect").val();
-        
+    var address = $("#raddress").val();
+    var unit = $("#runit").val();
+    var unitsize = $("#runitsize").val();
+    var additionalincome = $("#radditionalincome").val();
+    var expense = $("#rexpense").val();
+
         $.ajax({
             type: "POST",
-            url: "php/requestform-process.php",
-            data: "name=" + name + "&email=" + email + "&phone=" + phone + "&select=" + select,
-            success: function(text) {
-                if (text == "success") {
+            url: "https://theowong.herokuapp.com/multi",
+            data: {
+              name: name,
+              email: email,
+              phone: phone,
+              address: address,
+              unit: unit,
+              unitsize: unitsize,
+              additionalincome: additionalincome,
+              expense: expense,
+            },
+            success: function(response) {
+                if (response.success == "success") {
                     rformSuccess();
                 } else {
                     rformError();
-                    rsubmitMSG(false, text);
+                    rsubmitMSG(false, 'There was something wrong with the appointment request, please try again later.');
                 }
             }
         });
