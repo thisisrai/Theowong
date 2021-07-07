@@ -67,9 +67,6 @@
                 <li class="nav-item">
                     <a class="nav-link page-scroll" href="#services">Services</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link page-scroll" href="#request">Request</a>
-                </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link page-scroll" href="#about">About</a>
                 </li>
@@ -234,7 +231,63 @@
     </div> <!-- end of basic-1 -->
     <!-- end of details 1 -->
 
+        <!-- House Request -->
+        <div id="houseRequest" class="form-1">
+          <div class="container">
+              <div class="row">
+                  <div class="col-lg-6">
+                      <div class="text-container">
+                          <h2>Fill The Following Form To Request A Meeting to List Your House</h2>
+                          <p>Lets list your House!</p>
+                          <ul class="list-unstyled li-space-lg">
+                              <li class="media">
+                                  <i class="fas fa-check"></i>
+                                  <div class="media-body"><strong class="blue">Let us do all the </strong> work</div>
+                              </li>
+                          </ul>
+                      </div> <!-- end of text-container -->
+                  </div> <!-- end of col -->
+                  <div class="col-lg-6">
     
+                      <!-- Request Form -->
+                      <div class="form-container">
+                          <form id="houseRequestForm" data-toggle="validator" data-focus="false">
+                              <div class="form-group">
+                                  <input type="text" class="form-control-input" id="rhousename" name="rhousename" required>
+                                  <label class="label-control" for="rhousename">Full name</label>
+                                  <div class="help-block with-errors"></div>
+                              </div>
+                              <div class="form-group">
+                                  <input type="email" class="form-control-input" id="rhouseemail" name="rhouseemail" required>
+                                  <label class="label-control" for="rhouseemail">Email</label>
+                                  <div class="help-block with-errors"></div>
+                              </div>
+                              <div class="form-group">
+                                  <input type="text" class="form-control-input" id="rhousephone" name="rhousephone" required>
+                                  <label class="label-control" for="rhousephone">Phone</label>
+                                  <div class="help-block with-errors"></div>
+                              </div>
+                              <div class="form-group">
+                                <input type="text" class="form-control-input" id="rhouseaddress" name="rhouseaddress" required>
+                                <label class="label-control" for="rhouseaddress">House's address</label>
+                                <div class="help-block with-errors"></div>
+                            </div>
+                              <div class="form-group">
+                                  <button type="submit" class="form-control-submit-button">REQUEST</button>
+                              </div>
+                              <div class="form-message">
+                                  <div id="rhousemsgSubmit" class="h3 text-center hidden"></div>
+                              </div>
+                          </form>
+                      </div> <!-- end of form-container -->
+                      <!-- end of request form -->
+    
+                  </div> <!-- end of col -->
+              </div> <!-- end of row -->
+          </div> <!-- end of container -->
+      </div> <!-- end of form-1 -->
+      <!-- end of request -->
+
     <!-- Details 2 -->
     <div class="basic-2">
         <div class="container">

@@ -211,6 +211,62 @@
         $("#rcondomsgSubmit").removeClass().addClass(msgClasses).text(msg);
     }
 
+        /* house Request Form */
+        $("#houseRequestForm").validator().on("submit", function(event) {
+          if (event.isDefaultPrevented()) {
+                // handle the invalid form...
+                rhouseformError();
+                rhousesubmitMSG(false, "Please fill all fields!");
+            } else {
+                // everything looks good!
+                event.preventDefault();
+                rhousesubmitForm();
+            }
+        });
+    
+        function rhousesubmitForm() {
+            // initiate variables with form content
+        var name = $("#rhousename").val();
+        var email = $("#rhouseemail").val();
+        var phone = $("#rhousephone").val();
+        var address = $("#rhouseaddress").val();
+    
+            $.ajax({
+                type: "POST",
+                url: "https://theowong.herokuapp.com/house",
+                data: {name: name, email: email, phone: phone, address: address},
+                success: function(response) {
+                    if (response.success == "success") {
+                        rhouseformSuccess();
+                    } else {
+                        rhouseformError();
+                        rhousesubmitMSG(false, 'There was something wrong with the appointment request, please try again later.');
+                    }
+                }
+            });
+      }
+    
+        function rhouseformSuccess() {
+            $("#houseRequestForm")[0].reset();
+            rhousesubmitMSG(true, "Request Submitted!");
+            $("input").removeClass('notEmpty'); // resets the field label after submission
+        }
+    
+        function rhouseformError() {
+            $("#houseRequestForm").removeClass().addClass('shake animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+                $(this).removeClass();
+            });
+      }
+    
+        function rhousesubmitMSG(valid, msg) {
+            if (valid) {
+                var msgClasses = "h3 text-center tada animated";
+            } else {
+                var msgClasses = "h3 text-center";
+            }
+            $("#rhousemsgSubmit").removeClass().addClass(msgClasses).text(msg);
+        }
+
     /* Request Form */
     $("#requestForm").validator().on("submit", function(event) {
     	if (event.isDefaultPrevented()) {
